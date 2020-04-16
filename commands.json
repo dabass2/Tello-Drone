@@ -1,0 +1,271 @@
+{
+    "control": {
+        "command": {
+            "name": "command",
+            "desc": "Enter SDK mode",
+            "args": 0,
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "takeoff": {
+            "name": "takeoff",
+            "desc": "Auto takeoff",
+            "args": 0,
+            "timeout": 3000,
+            "res": "ok",
+            "err": "error"
+        },
+        "land": {
+            "name": "land",
+            "desc": "Auto land",
+            "args": 0,
+            "timeout": 5000,
+            "res": "ok",
+            "err": "error"
+        },
+        "streamon": {
+            "name": "streamon",
+            "desc": "Turn video stream on",
+            "args": 0,
+            "timeout": 2000,
+            "res": "ok",
+            "err": "error"
+        },
+        "streamoff": {
+            "name": "streamoff",
+            "desc": "Turn video stream off",
+            "args": 0,
+            "timeout": 2000,
+            "res": "ok",
+            "err": "error"
+        },
+        "emergency": {
+            "name": "emergency",
+            "desc": "Turn all motors off immediately",
+            "args": 0,
+            "timeout": 10000,
+            "res": "ok",
+            "err": "error"
+        },
+        "up": {
+            "name": "up",
+            "desc": "Moves drone up x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "down": {
+            "name": "down",
+            "desc": "Moves drone down x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "left": {
+            "name": "left",
+            "desc": "Moves drone left x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "right": {
+            "name": "right",
+            "desc": "Moves drone right x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "forward": {
+            "name": "forward",
+            "desc": "Moves drone forward x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "back": {
+            "name": "back",
+            "desc": "Moves drone back x cm (x: 20-500)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "cw": {
+            "name": "cw",
+            "desc": "Rotate drone clockwise x degrees (x: 1-3600)",
+            "args": 1,
+            "values": {"min": 1, "max": 3600},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "ccw": {
+            "name": "ccw",
+            "desc": "Rotate drone counter-clockwise x degrees (x: 1-3600)",
+            "args": 1,
+            "values": {"min": 1, "max": 3600},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "flip": {
+            "name": "flip",
+            "desc": "Flip the drone mid air (l: left, r: right, f: forward, b: back)",
+            "args": 1,
+            "values": ["l", "r", "f", "b"],
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "go": {
+            "name": "go",
+            "desc": "Tell drone to fly to (x, y, z) at speed",
+            "args": 4,
+            "values": {"x": {"min": 20, "max": 500},
+                       "y": {"min": 20, "max": 500},
+                       "z": {"min": 20, "max": 500},
+                       "speed": {"min": 10, "max": 100}},
+            "timeout": 1500,
+            "res": "ok",
+            "err": "error"
+        },
+        "curve": {
+            "name": "curve",
+            "desc": "Fly a curve defined by certain coord values (x/y/z can't be between -20/20 concurrently",
+            "args": 7,
+            "values": {"x1": {"min": 20, "max": 500},
+                       "x2": {"min": 20, "max": 500}, 
+                       "y1": {"min": 20, "max": 500},
+                       "y2": {"min": 20, "max": 500},
+                       "z1": {"min": 20, "max": 500},
+                       "z2": {"min": 20, "max": 500},
+                       "speed": {"min": 20, "max": 100}},
+            "timeout": 1500,
+            "res": "ok",
+            "err": "error"
+        }
+    },
+    "set": {
+        "speed": {
+            "name": "speed",
+            "desc": "Set the drone's speed, x (x: 10-100)",
+            "args": 1,
+            "values": {"min": 20, "max": 500},
+            "timeout": 500,
+            "res": "ok",
+            "err": "error"
+        },
+        "rc": {
+            "name": "rc",
+            "desc": "Send RC control via four channels (a: left/right, b: fwd/bkwd, c: up/down, d: yaw)",
+            "args": 4,
+            "values": {"min": -100, "max": 100},
+            "timeout": 1000,
+            "res": "ok",
+            "err": "error"
+        },
+        "wifi": {
+            "name": "wifi",
+            "desc": "Set Wi-Fi with SSID password",
+            "args": 2,
+            "values": {"ssid": "", "pass": ""},
+            "timeout": 500,
+            "res": "ok",
+            "err": "error"
+        }
+    },
+    "read": {
+        "speed": {
+            "name": "speed?",
+            "desc": "Get current drone speed",
+            "args": 0,
+            "timeout": 500,
+            "res": {"min": 1, "max": 100},
+            "err": "error"
+        },
+        "battery": {
+            "name": "battery?",
+            "desc": "Get current drone battery level",
+            "args": 0,
+            "timeout": 500,
+            "res": {"min": 0, "max": 100},
+            "err": "error"
+        },
+        "time": {
+            "name": "time?",
+            "desc": "Get drone flight time in seconds",
+            "args": 0,
+            "timeout": 500,
+            "res": "",
+            "err": "error"
+        },
+        "height": {
+            "name": "height?",
+            "desc": "Get current drone height (cm)",
+            "args": 0,
+            "timeout": 500,
+            "res": {"min": 0, "max": 3000},
+            "err": "error"
+        },
+        "temp": {
+            "name": "temp?",
+            "desc": "Get current drone temperature",
+            "args": 0,
+            "timeout": 500,
+            "res": {"min": 0, "max": 90},
+            "err": "error"
+        },
+        "attitude": {
+            "name": "attitude?",
+            "desc": "Get drone IMU attitude data",
+            "args": 0,
+            "timeout": 500,
+            "res": {"pitch": "", "roll": "", "yaw": ""},
+            "err": "error"
+        },
+        "baro": {
+            "name": "baro?",
+            "desc": "Get barometer value (m)",
+            "args": 0,
+            "timeout": 500,
+            "res": {"x": ""},
+            "err": "error"
+        },
+        "acceleration": {
+            "name": "acceleration?",
+            "desc": "Get current drone IMU angular acceleration",
+            "args": 0,
+            "timeout": 500,
+            "res": {"x": "", "y": "", "z": ""},
+            "err": "error"
+        },
+        "tof": {
+            "name": "tof?",
+            "desc": "Get current drone distance from TOF (cm)",
+            "args": 0,
+            "timeout": 500,
+            "res": {"min": 30, "max": 1000},
+            "err": "error"
+        },
+        "wifi": {
+            "name": "wifi?",
+            "desc": "Get Wi-Fi SNR",
+            "args": 0,
+            "timeout": 500,
+            "res": "",
+            "err": "error"
+        }
+    }
+}
