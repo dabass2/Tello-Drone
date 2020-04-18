@@ -44,20 +44,13 @@ function handleInput(line) {
     var sendCmd = undefined;
 
     /*
-    Some classy nested if loops to parse out
-    command type. Works down the three types
-    and if not found throws an error.
+    Sets command to the object associated with it
+    If not found, throws an error
     */
-    command = cmd.control[line[0]]
-    if (!command) {
-        command = cmd.set[line[0]]
-        if (!command) {
-            command = cmd.read[line[0]]
-            if (!command)
-            {
-                throw "Invalid command name error."
-            }
-        }
+    command = cmd.control[line[0]] || cmd.set[line[0]] || cmd.read[line[0]]
+    if (!command)
+    {
+        throw "Invalid command name error."
     }
 
     line.shift()                                // extract the args
