@@ -7,6 +7,8 @@ const dgram = require("dgram")
 const PORT = 8889
 const HOST = '192.168.10.1'
 const drone = dgram.createSocket('udp4')    // talk to bot via udp packets
+const video = dgram.createSocket('udp4')
+video.bind(11111)
 drone.bind(PORT)
 
 drone.on('message', message => {
@@ -19,6 +21,9 @@ function handleError(err) {
   }
 }
 
+// video.on('message', message => {
+//   console.log(`${message} video on`)
+// })
 drone.send('command', 0, 7, PORT, HOST, handleError)    // send sdk activate command
 drone.send('battery?', 0, 8, PORT, HOST, handleError)   // check battery level
 
@@ -75,9 +80,14 @@ function handleInput(line) {
     Most cases would allow for 'line' to be passed back by itself,
     but in cases when cmd name differs, it's best to do this
     */
-    sendCmd = `${commandName}${args.join(" ")}` // cmd name + args
+  //  console.log(args)
+    sendCmd = commandName
+    for (let i = 0; i < args.length; i++)
+    {
+      sendCmd += ` ${args[i]}` // cmd name + args
+    }
 
-    // console.log(sendCmd, 0, packetLen, PORT, HOST)  // useful for debugging
+    console.log(sendCmd, 0, packetLen, PORT, HOST)  // useful for debugging
 
     /*
     At this point should be safe to send packet
